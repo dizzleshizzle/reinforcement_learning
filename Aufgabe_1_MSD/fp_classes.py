@@ -22,7 +22,7 @@ class agent:
 		self.target_reward = 10.0
 		self.zero_fraction = 0.9
 
-		self.D = 0.05
+		self.D = 0.5
 		self.P_diffstep = 2*self.D
 		
 		self.x_old = None

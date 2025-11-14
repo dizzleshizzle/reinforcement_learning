@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
 import time as tm
 
-#from celluloid import Camera
+from celluloid import Camera
 from datetime import date
 import datetime
 
@@ -55,8 +55,10 @@ ax.set_xlabel(r"$t$")
 ax.set_ylabel(r"$\left <x^2(t) \right >$")
 plt.show()
 
-
-
+D0 = learner.D
+D1 = p[0]/2
+graf_filename = f"Aufgabe_1_MSD_{D0}_{D1}_Kunstmann_{now}.png"
+fig.savefig(graf_filename, bbox_inches='tight')
 
 exit()
 LAST_TRAJECTORY = []
