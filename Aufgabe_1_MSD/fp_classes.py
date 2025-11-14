@@ -11,8 +11,8 @@ class environment:
 	
 class agent:
 	def __init__(self,env_):
-		self.N_episodes = None
-		self.tmax_MSD = None
+		self.N_episodes = 20000
+		self.tmax_MSD = 100
 		
 		self.x = 1
 		self.Q = np.zeros((env_.N_states,3))
@@ -23,7 +23,7 @@ class agent:
 		self.zero_fraction = 0.9
 
 		self.D = 0.05
-		self.P_diffstep = None
+		self.P_diffstep = 2*self.D
 		
 		self.x_old = None
 		
@@ -33,7 +33,8 @@ class agent:
 			exit()
 	
 	def random_step(self):
-		pass
+		if np.random.rand()<self.P_diffstep:
+			self.x+=2*np.random.randint(0,2) -1
 		
 	def adjust_epsilon(self,episode):
 		pass

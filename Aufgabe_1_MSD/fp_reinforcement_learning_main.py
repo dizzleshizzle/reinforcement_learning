@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
 import time as tm
 
-from celluloid import Camera
+#from celluloid import Camera
 from datetime import date
 import datetime
 
@@ -32,9 +32,10 @@ for i in range(learner.N_episodes):
 		T_XPOW2_DATAPOINTS[t].append(learner.x**2)
 		
 		#AUFGABE: random_step here	
+		learner.random_step()
 
 
-exit()
+#exit()
 
 for key in T_XPOW2_DATAPOINTS.keys():
 	T_XPOW2_DATAPOINTS[key] =  np.mean(T_XPOW2_DATAPOINTS[key])
