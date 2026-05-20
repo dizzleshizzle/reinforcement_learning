@@ -37,8 +37,8 @@ class agent:
 			self.x+=2*np.random.randint(0,2) -1
 		
 	def adjust_epsilon(self,episode):
-		if (episode < self.zero_fraction*self.N_episodesi-1):
-			self.epsilon -= 1/(self.zero_fraction*self.N_episodes)
+		if (episode < self.zero_fraction*self.N_episodes):
+			self.epsilon = 1 - episode/(self.zero_fraction*self.N_episodes)
 		else:
 			self.epsilon = 0
 	
