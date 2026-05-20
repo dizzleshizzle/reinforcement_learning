@@ -47,13 +47,32 @@ class agent:
 		wählt eine Zufallsaktion aus mit Wahrscheinlichkeit self.epsilon oder falls zwei Aktionen die höchsten Q-Werte haben.
 		Andernfalls wird der höchste Wert in der jeweiligen Zeile ausgewählt.
 		"""
-		pass
+		if np.random.rand()<self.epsilon:
+			self.chose_action = np.random.randint(0,3)
+		else:
+			q_values = self.Q[self.x,:]
+			max_q = np.max(q_values)
+			max_actions = np.where(q_values == max_q)[0]
+			self.chosen_action = np.random.choice(max_action)
+
+	def fix_boundary_crossing(self, env_):
+		if self.x < 0:
+			self.x = env_.N_states - abs(self.x)
+		if self.x >= env_.N_states:
+			self.x = (self.x - env_.N_states)
+
 	def perform_action(self,env_):
 		"""
 		Hier werden die Aktionen ausgeführt. Der Index der Aktion entspricht der Verschiebung auf der x-Achse + 1
 		"""
 
-		pass
+		if self.chosen_action == 0:
+			self.x -= 1
+			self.fix_boundary_crossing(env_)
+		if self.chosen_action == 2:
+			self.x += 1
+			self.fix_boundary_crossing(env_)
+			
 	
 	def update_Q(self,env_):
 		"""
