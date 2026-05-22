@@ -75,7 +75,13 @@ for episode in range(learner.N_episodes):
 
 	while (learner.x != env.target_position) or learner.chosen_action != 1:
 		if episode == learner.N_episodes-1: LAST_TRAJECTORY.append(learner.x)
-		pass
+		
+		learner.x_old = learner.x
+		learner.adjust_epsilon(episode)
+		learner.choose)action()
+		learner.random_step()
+		learner.perform_action(env)
+		learner.update_Q(env)
 
 
 im_agent = plt.imread("../IMG/Lasse_head.png")

@@ -78,7 +78,18 @@ class agent:
 		"""
 		Hier werden die Werte der Q-Matrix nach jeder Aktion entsprechend aktualisiert
 		"""
-		pass
+		self.x_old = self.x
+		i = self.x_old
+		ip = self.x
+		j = self.chosen_action
+
+		if ( i == env_.target_position and j== 1):
+			R = self.target_reward
+		else:
+			R = 0
+
+		self.Q[i,j] = self.Q[i,j] + self.alpha *(R + self.gamma * np.max(self.Q[ip,:]) - self.Q[i,j])
+
 	
 	def stoch_obstacle(self,env_):
 		pass
