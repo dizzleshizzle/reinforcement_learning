@@ -92,7 +92,7 @@ imagebox2 = OffsetImage(im_treat, zoom=0.5)
 trajfig,trajax = plt.subplots()
 camera = Camera(trajfig)
 
-f = open('Q_MATRIX_' + no + '.txt', 'w')
+f = open('Q_MATRIX_' + now + '.txt', 'w')
 f.write(str(learner.Q))
 f.close()
 #--------------------------------------------------------------------

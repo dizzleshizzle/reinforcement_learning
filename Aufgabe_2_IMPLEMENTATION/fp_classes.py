@@ -48,12 +48,12 @@ class agent:
 		Andernfalls wird der höchste Wert in der jeweiligen Zeile ausgewählt.
 		"""
 		if np.random.rand()<self.epsilon:
-			self.chose_action = np.random.randint(0,3)
+			self.chosen_action = np.random.randint(0,3)
 		else:
 			q_values = self.Q[self.x,:]
 			max_q = np.max(q_values)
 			max_actions = np.where(q_values == max_q)[0]
-			self.chosen_action = np.random.choice(max_action)
+			self.chosen_action = np.random.choice(max_actions)
 
 	def fix_boundary_crossing(self, env_):
 		self.x = self.x % env_.N_states
