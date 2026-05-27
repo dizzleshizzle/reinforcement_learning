@@ -78,7 +78,7 @@ for episode in range(learner.N_episodes):
 		
 		learner.x_old = learner.x
 		learner.adjust_epsilon(episode)
-		learner.choose)action()
+		learner.choose_action()
 		learner.random_step()
 		learner.perform_action(env)
 		learner.update_Q(env)
@@ -92,6 +92,9 @@ imagebox2 = OffsetImage(im_treat, zoom=0.5)
 trajfig,trajax = plt.subplots()
 camera = Camera(trajfig)
 
+f = open('Q_MATRIX_' + no + '.txt', 'w')
+f.write(str(learner.Q))
+f.close()
 #--------------------------------------------------------------------
 #IM FOLGENDEN CODE BLOCK WIRD DIE TRAJEKTORIE ALS GIF AUSGEGEBEN
 #WENN DIESER TEIL ZU LANGE DAUERT ODER SIE DIE NÖTIGEN LIBRARIES NICHT INSTALLIEREN KÖNNEN,

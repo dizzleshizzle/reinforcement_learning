@@ -56,29 +56,31 @@ class agent:
 			self.chosen_action = np.random.choice(max_action)
 
 	def fix_boundary_crossing(self, env_):
-		if self.x < 0:
-			self.x = env_.N_states - abs(self.x)
-		if self.x >= env_.N_states:
-			self.x = (self.x - env_.N_states)
+		self.x = self.x % env_.N_states
 
 	def perform_action(self,env_):
 		"""
 		Hier werden die Aktionen ausgeführt. Der Index der Aktion entspricht der Verschiebung auf der x-Achse + 1
 		"""
 
+		"""
 		if self.chosen_action == 0:
 			self.x -= 1
 			self.fix_boundary_crossing(env_)
 		if self.chosen_action == 2:
 			self.x += 1
 			self.fix_boundary_crossing(env_)
-			
+		"""
+		dx = self.chosen_action -1
+
+		self.x += dx
+
+		self.fix_boundary_crossing(env_)
 	
 	def update_Q(self,env_):
 		"""
 		Hier werden die Werte der Q-Matrix nach jeder Aktion entsprechend aktualisiert
 		"""
-		self.x_old = self.x
 		i = self.x_old
 		ip = self.x
 		j = self.chosen_action
