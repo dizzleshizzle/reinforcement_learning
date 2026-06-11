@@ -4,14 +4,14 @@ class environment:
 	def __init__(self):
 		self.N_states = 100
 		self.target_position = 8
-		self.starting_position = 30
+		self.starting_position = 58#30
 		
 		self.obstacle_interval = np.arange(9,12)
 		self.P_obstacle = 0.0
 	
 class agent:
 	def __init__(self,env_):
-		self.N_episodes = 10000
+		self.N_episodes = 100000 #10000
 		self.tmax_MSD = 100
 		
 		self.x = 1
@@ -22,7 +22,7 @@ class agent:
 		self.target_reward = 10.0
 		self.zero_fraction = 0.9
 
-		self.D = 0.125
+		self.D =0 # 0.125
 		self.P_diffstep = 2*self.D
 		
 		self.x_old = None
